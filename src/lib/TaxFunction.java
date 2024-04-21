@@ -16,7 +16,7 @@ public class TaxFunction {
 	
 	
 	public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthWorking, int deductible, boolean isMarried, int numberOfChildren) {
-		
+	// long parameter list & long methods
 		int tax = 0;
 		
 		if (numberOfMonthWorking > 12) {
