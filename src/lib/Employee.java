@@ -1,6 +1,7 @@
 package lib;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,9 +12,7 @@ public class Employee {
 	private EmployeeIdentity identity;
 	// data clumps
 	
-	private int yearJoined;
-	private int monthJoined;
-	private int dayJoined;
+	private LocalDateTime dateJoined;
 	// primitive obsession
 
 	private int monthWorkingInYear;
@@ -29,15 +28,13 @@ public class Employee {
 	// data clumps 
 
 	
-	public Employee(EmployeeIdentity identity, int yearJoined, int monthJoined, int dayJoined, boolean isForeigner, boolean gender, EmployeeRelatives relatives, EmployeeSalary salary) {
+	public Employee(EmployeeIdentity identity, LocalDateTime dateJoined, boolean isForeigner, boolean gender, EmployeeRelatives relatives, EmployeeSalary salary) {
 	// long method	
 		this.identity = identity;
 		this.relatives = relatives;
 		this.salary = salary;
-
-		this.yearJoined = yearJoined;
-		this.monthJoined = monthJoined;
-		this.dayJoined = dayJoined;
+		this.dateJoined = dateJoined;
+		
 		this.isForeigner = isForeigner;
 		this.gender = gender;
 	}
@@ -73,8 +70,8 @@ public class Employee {
 		//Menghitung berapa lama pegawai bekerja dalam setahun ini, jika pegawai sudah bekerja dari tahun sebelumnya maka otomatis dianggap 12 bulan.
 		LocalDate date = LocalDate.now();
 		
-		if (date.getYear() == yearJoined) {
-			monthWorkingInYear = date.getMonthValue() - monthJoined;
+		if (date.getYear() == dateJoined.getYear()) {
+			monthWorkingInYear = date.getMonthValue() - dateJoined.getMonthValue();
 		}else {
 			monthWorkingInYear = 12;
 		}
