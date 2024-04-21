@@ -74,7 +74,7 @@ public class Employee {
 			monthWorkingInYear = 12;
 		}
 		
-		return TaxFunction.calculateTax(salary.getMonthlySalary(), salary.getOtherMonthlyIncome(), monthWorkingInYear, salary.getAnnualDeductible(), relatives.getSpouseIdNumber().equals(""), relatives.getChildIdNumbers().size());
+		return TaxFunction.calculateTax(salary, monthWorkingInYear, relatives.getSpouseIdNumber().equals(""), relatives.getChildIdNumbers().size());
 	}
 
 }
