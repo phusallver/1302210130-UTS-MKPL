@@ -15,8 +15,8 @@ public class TaxFunction {
 	 */
 	
 	
-	public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthWorking, int deductible, boolean isMarried, int numberOfChildren) {
-	// long parameter list & long methods
+	public static int calculateTax(EmployeeSalary salary, int numberOfMonthWorking, boolean isMarried, int numberOfChildren) {
+	// long parameter list solved & long methods 
 		int tax = 0;
 		
 		if (numberOfMonthWorking > 12) {
@@ -28,9 +28,9 @@ public class TaxFunction {
 		}
 		
 		if (isMarried) {
-			tax = (int) Math.round(0.05 * (((monthlySalary + otherMonthlyIncome) * numberOfMonthWorking) - deductible - (54000000 + 4500000 + (numberOfChildren * 1500000))));
+			tax = (int) Math.round(0.05 * (((salary.getMonthlySalary() + salary.getOtherMonthlyIncome()) * numberOfMonthWorking) - salary.getAnnualDeductible() - (54000000 + 4500000 + (numberOfChildren * 1500000))));
 		}else {
-			tax = (int) Math.round(0.05 * (((monthlySalary + otherMonthlyIncome) * numberOfMonthWorking) - deductible - 54000000));
+			tax = (int) Math.round(0.05 * (((salary.getMonthlySalary() + salary.getOtherMonthlyIncome()) * numberOfMonthWorking) - salary.getAnnualDeductible() - 54000000));
 		}
 		
 		if (tax < 0) {
