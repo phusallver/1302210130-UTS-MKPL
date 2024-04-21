@@ -23,18 +23,18 @@ public class TaxFunction {
 			System.err.println("More than 12 month working per year");
 		}
 		
-		numberOfChildren = Math.min(numberOfChildren, 3); // Jika anak lebih dari 3 maka jumlah anak menjadi 3
+		numberOfChildren = Math.min(numberOfChildren, 3); 
 		
 		int netAnnualIncome = calculateNetAnnualIncome(salary, numberOfMonthWorking, isMarried, numberOfChildren);
 		int taxExemptIncome = calculateTaxExemptIncome(isMarried, numberOfChildren);
 		tax = calculateIncomeTax(netAnnualIncome, salary.getAnnualDeductible(), taxExemptIncome);
 		
-		return Math.max(tax, 0); // Memastikan pajak tidak negatif
+		return Math.max(tax, 0);
 	}
 
 	private static int calculateNetAnnualIncome(EmployeeSalary salary, int numberOfMonthWorking, boolean isMarried, int numberOfChildren) {
 		int monthlyIncome = salary.getMonthlySalary() + salary.getOtherMonthlyIncome();
-		int totalWorkingMonths = Math.min(numberOfMonthWorking, 12); // Memastikan jumlah bulan kerja tidak lebih dari 12
+		int totalWorkingMonths = Math.min(numberOfMonthWorking, 12);
 		int annualIncome = monthlyIncome * totalWorkingMonths;
 		return annualIncome;
 	}
@@ -42,9 +42,9 @@ public class TaxFunction {
 	private static int calculateTaxExemptIncome(boolean isMarried, int numberOfChildren) {
 		int taxExemptIncome = 54000000;
 		if (isMarried) {
-			taxExemptIncome += 4500000; // Tambahan pengurangan pajak jika sudah menikah
+			taxExemptIncome += 4500000; 
 		}
-		taxExemptIncome += numberOfChildren * 1500000; // Tambahan pengurangan pajak untuk jumlah anak (max 3)
+		taxExemptIncome += numberOfChildren * 1500000;
 		return taxExemptIncome;
 	}
 
@@ -52,7 +52,7 @@ public class TaxFunction {
 		int taxableIncome = netAnnualIncome - annualDeductible - taxExemptIncome;
 		double taxRate = 0.05;
 		int tax = (int) Math.round(taxRate * taxableIncome);
-		return Math.max(tax, 0); // Memastikan pajak tidak negatif
+		return Math.max(tax, 0);
 	}
 	
 }

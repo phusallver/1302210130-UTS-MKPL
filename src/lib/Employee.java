@@ -5,34 +5,21 @@ import java.time.LocalDateTime;
 import java.time.Month;
 
 public class Employee {
-	// large class solved
 
 	private EmployeeIdentity identity;
-	// data clumps solved
-	
 	private LocalDateTime dateJoined;
-	// primitive obsession solved
-
 	private int monthWorkingInYear;
-	
 	private boolean isForeigner;
 	private boolean gender; 
-	// true = Laki-laki, false = Perempuan
-	
 	private EmployeeSalary salary;
-	// data clumps solved
-	
 	private EmployeeRelatives relatives;
-	// data clumps solved
 
 	
 	public Employee(EmployeeIdentity identity, LocalDateTime dateJoined, boolean isForeigner, boolean gender, EmployeeRelatives relatives, EmployeeSalary salary) {
-	// long method	
 		this.identity = identity;
 		this.relatives = relatives;
 		this.salary = salary;
 		this.dateJoined = dateJoined;
-		
 		this.isForeigner = isForeigner;
 		this.gender = gender;
 	}
@@ -44,7 +31,6 @@ public class Employee {
 	 */
 	
 	 public void setMonthlySalary(int grade) {	
-		// duplicate code solved
 		int countSalary = 0;
 		switch (grade) {
 			case 1:
